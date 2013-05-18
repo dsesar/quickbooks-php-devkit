@@ -542,11 +542,90 @@ class QuickBooks_API_Source_OE extends QuickBooks_API_Source
 
 		// Try to map the response to QuickBooks objects
 		$map = array(
-			QUICKBOOKS_ADD_CUSTOMER => array( '', 'QuickBooks_Callbacks_API_Callbacks::CustomerAddResponse' ),
-			QUICKBOOKS_MOD_CUSTOMER => array( '', 'QuickBooks_Callbacks_API_Callbacks::CustomerModResponse' ),
-			QUICKBOOKS_QUERY_CUSTOMER => array( '', 'QuickBooks_Callbacks_API_Callbacks::CustomerQueryResponse' ),
-			'*' => array( '', 'QuickBooks_Callbacks_API_Callbacks::RawQBXMLResponse' ),
-			);
+            QUICKBOOKS_ADD_CLASS              => array('', 'QuickBooks_Callbacks_API_Callbacks::ClassAddResponse'),
+			QUICKBOOKS_QUERY_CLASS            => array('', 'QuickBooks_Callbacks_API_Callbacks::ClassQueryResponse'),
+
+			QUICKBOOKS_ADD_ACCOUNT            => array('', 'QuickBooks_Callbacks_API_Callbacks::AccountAddResponse'),
+			QUICKBOOKS_MOD_ACCOUNT            => array('', 'QuickBooks_Callbacks_API_Callbacks::AccountModResponse'),
+			QUICKBOOKS_QUERY_ACCOUNT          => array('', 'QuickBooks_Callbacks_API_Callbacks::AccountQueryResponse'),
+
+			QUICKBOOKS_ADD_CUSTOMER           => array('', 'QuickBooks_Callbacks_API_Callbacks::CustomerAddResponse'),
+			QUICKBOOKS_MOD_CUSTOMER           => array('', 'QuickBooks_Callbacks_API_Callbacks::CustomerModResponse'),
+			QUICKBOOKS_QUERY_CUSTOMER         => array('', 'QuickBooks_Callbacks_API_Callbacks::CustomerQueryResponse'),
+
+			QUICKBOOKS_ADD_CUSTOMERTYPE       => array('', 'QuickBooks_Callbacks_API_Callbacks::CustomerTypeAddResponse'),
+			QUICKBOOKS_QUERY_CUSTOMERTYPE     => array('', 'QuickBooks_Callbacks_API_Callbacks::CustomerTypeQueryResponse'),
+
+			QUICKBOOKS_ADD_DEPOSIT            => array('', 'QuickBooks_Callbacks_API_Callbacks::DepositAddResponse'),
+			QUICKBOOKS_MOD_DEPOSIT            => array('', 'QuickBooks_Callbacks_API_Callbacks::DepositModResponse'),
+			QUICKBOOKS_QUERY_DEPOSIT          => array('', 'QuickBooks_Callbacks_API_Callbacks::DepositQueryResponse'),
+
+			QUICKBOOKS_ADD_DATAEXT            => array('', 'QuickBooks_Callbacks_API_Callbacks::DataExtAddResponse'),
+			QUICKBOOKS_MOD_DATAEXT            => array('', 'QuickBooks_Callbacks_API_Callbacks::DataExtModResponse'),
+			QUICKBOOKS_DEL_DATAEXT            => array('', 'QuickBooks_Callbacks_API_Callbacks::DataExtQueryResponse'),
+
+			QUICKBOOKS_ADD_INVOICE            => array('', 'QuickBooks_Callbacks_API_Callbacks::InvoiceAddResponse'),
+			QUICKBOOKS_MOD_INVOICE            => array('', 'QuickBooks_Callbacks_API_Callbacks::InvoiceModResponse'),
+			QUICKBOOKS_QUERY_INVOICE          => array('', 'QuickBooks_Callbacks_API_Callbacks::InvoiceQueryResponse'),
+
+			QUICKBOOKS_ADD_EMPLOYEE           => array('', 'QuickBooks_Callbacks_API_Callbacks::EmployeeAddResponse'),
+			QUICKBOOKS_MOD_EMPLOYEE           => array('', 'QuickBooks_Callbacks_API_Callbacks::EmployeeModResponse'),
+			QUICKBOOKS_QUERY_EMPLOYEE         => array('', 'QuickBooks_Callbacks_API_Callbacks::EmployeeQueryResponse'),
+
+			QUICKBOOKS_ADD_ESTIMATE           => array('', 'QuickBooks_Callbacks_API_Callbacks::EstimateAddResponse'),
+			QUICKBOOKS_MOD_ESTIMATE           => array('', 'QuickBooks_Callbacks_API_Callbacks::EstimateModResponse'),
+			QUICKBOOKS_QUERY_ESTIMATE         => array('', 'QuickBooks_Callbacks_API_Callbacks::EstimateQueryResponse'),
+
+			QUICKBOOKS_ADD_PAYMENTMETHOD      => array('', 'QuickBooks_Callbacks_API_Callbacks::PaymentAddResponse'),
+			QUICKBOOKS_QUERY_PAYMENTMETHOD    => array('', 'QuickBooks_Callbacks_API_Callbacks::PaymentQueryResponse'),
+
+			QUICKBOOKS_ADD_RECEIVEPAYMENT     => array('', 'QuickBooks_Callbacks_API_Callbacks::ReceivePaymentAddResponse'),
+			QUICKBOOKS_MOD_RECEIVEPAYMENT     => array('', 'QuickBooks_Callbacks_API_Callbacks::ReceivePaymentModResponse'),
+			QUICKBOOKS_QUERY_RECEIVEPAYMENT   => array('', 'QuickBooks_Callbacks_API_Callbacks::ReceivePaymentQueryResponse'),
+
+			QUICKBOOKS_QUERY_ITEM             => array('', 'QuickBooks_Callbacks_API_Callbacks::Ite,QueryResponse'),
+
+			QUICKBOOKS_ADD_DISCOUNTITEM       => array('', 'QuickBooks_Callbacks_API_Callbacks::DiscountItemAddResponse'),
+			QUICKBOOKS_MOD_DISCOUNTITEM       => array('', 'QuickBooks_Callbacks_API_Callbacks::DiscountItemModResponse'),
+			QUICKBOOKS_QUERY_DISCOUNTITEM     => array('', 'QuickBooks_Callbacks_API_Callbacks::DiscountItemQueryResponse'),
+
+			QUICKBOOKS_ADD_FIXEDASSETITEM     => array('', 'QuickBooks_Callbacks_API_Callbacks::FixedAssetItemAddResponse'),
+			QUICKBOOKS_MOD_FIXEDASSETITEM     => array('', 'QuickBooks_Callbacks_API_Callbacks::FixedAssetItemModResponse'),
+			QUICKBOOKS_QUERY_FIXEDASSETITEM   => array('', 'QuickBooks_Callbacks_API_Callbacks::FixedAssetItemQueryResponse'),
+
+			QUICKBOOKS_ADD_SERVICEITEM        => array('', 'QuickBooks_Callbacks_API_Callbacks::ServiceItemAddResponse'),
+			QUICKBOOKS_MOD_SERVICEITEM        => array('', 'QuickBooks_Callbacks_API_Callbacks::ServiceItemModResponse'),
+			QUICKBOOKS_QUERY_SERVICEITEM      => array('', 'QuickBooks_Callbacks_API_Callbacks::ServiceItemQueryResponse'),
+
+			QUICKBOOKS_ADD_INVENTORYITEM      => array('', 'QuickBooks_Callbacks_API_Callbacks::InventoryItemAddResponse'),
+			QUICKBOOKS_MOD_INVENTORYITEM      => array('', 'QuickBooks_Callbacks_API_Callbacks::InventoryItemModResponse'),
+			QUICKBOOKS_QUERY_INVENTORYITEM    => array('', 'QuickBooks_Callbacks_API_Callbacks::InventoryItemQueryResponse'),
+
+			QUICKBOOKS_ADD_NONINVENTORYITEM   => array('', 'QuickBooks_Callbacks_API_Callbacks::NonInventoryItemAddResponse'),
+			QUICKBOOKS_MOD_NONINVENTORYITEM   => array('', 'QuickBooks_Callbacks_API_Callbacks::NonInventoryItemModResponse'),
+			QUICKBOOKS_QUERY_NONINVENTORYITEM => array('', 'QuickBooks_Callbacks_API_Callbacks::NonInventoryItemQueryResponse'),
+
+			QUICKBOOKS_ADD_OTHERCHARGEITEM    => array('', 'QuickBooks_Callbacks_API_Callbacks::OtherChargeItemAddResponse'),
+			QUICKBOOKS_MOD_OTHERCHARGEITEM    => array('', 'QuickBooks_Callbacks_API_Callbacks::OtherChargeItemModResponse'),
+			QUICKBOOKS_QUERY_OTHERCHARGEITEM  => array('', 'QuickBooks_Callbacks_API_Callbacks::OtherChargeItemQueryResponse'),
+
+			QUICKBOOKS_ADD_SALESTAXITEM       => array('', 'QuickBooks_Callbacks_API_Callbacks::SalesTaxItemAddResponse'),
+			QUICKBOOKS_MOD_SALESTAXITEM       => array('', 'QuickBooks_Callbacks_API_Callbacks::SalesTaxItemModResponse'),
+			QUICKBOOKS_QUERY_SALESTAXITEM     => array('', 'QuickBooks_Callbacks_API_Callbacks::SaltesTaxItemQueryResponse'),
+
+			QUICKBOOKS_ADD_SALESRECEIPT       => array('', 'QuickBooks_Callbacks_API_Callbacks::SalesReceiptAddResponse'),
+			QUICKBOOKS_MOD_SALESRECEIPT       => array('', 'QuickBooks_Callbacks_API_Callbacks::SalesReceiptModResponse'),
+			QUICKBOOKS_QUERY_SALESRECEIPT     => array('', 'QuickBooks_Callbacks_API_Callbacks::SaltesReceiptQueryResponse'),
+
+			QUICKBOOKS_ADD_SHIPMETHOD         => array('', 'QuickBooks_Callbacks_API_Callbacks::ShipMethodAddResponse'),
+			QUICKBOOKS_QUERY_SHIPMETHOD       => array('', 'QuickBooks_Callbacks_API_Callbacks::ShipMethodQueryResponse'),
+
+			QUICKBOOKS_ADD_VENDOR             => array('', 'QuickBooks_Callbacks_API_Callbacks::VendorAddResponse'),
+			QUICKBOOKS_MOD_VENDOR             => array('', 'QuickBooks_Callbacks_API_Callbacks::VendorModResponse'),
+			QUICKBOOKS_QUERY_VENDOR           => array('', 'QuickBooks_Callbacks_API_Callbacks::VendorQueryResponse'),
+
+			'*' => array( '', 'QuickBooks_Callbacks_API_Callbacks::RawQBXMLResponse' )
+        );
 
 		//print($qbxml);
 		//print('CALL THIS: QuickBooks_Server_API_Callbacks::' . $action . 'Response');
