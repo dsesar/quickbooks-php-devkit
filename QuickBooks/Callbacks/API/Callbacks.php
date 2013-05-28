@@ -51,7 +51,7 @@ class QuickBooks_Callbacks_API_Callbacks
 	 */
 	protected static function _replacements($xml, $version, $locale, $requestID, $onerror = 'stopOnError')
 	{
-		if ($locale and $locale != QUICKBOOKS_LOCALE_US)
+		if ($locale && $locale != QUICKBOOKS_LOCALE_US)
 		{
 			$version = $locale . $version;
 		}
@@ -247,7 +247,7 @@ class QuickBooks_Callbacks_API_Callbacks
 		$start = strpos($xml, '<' . QUICKBOOKS_API_APPLICATIONEDITSEQUENCE . '>');
 		$end = strpos($xml, '</' . QUICKBOOKS_API_APPLICATIONEDITSEQUENCE . '>');
 
-		if ($start and $end)
+		if ($start && $end)
 		{
 			$encode = substr($xml, $start + strlen(QUICKBOOKS_API_APPLICATIONEDITSEQUENCE) + 2, $end - $start - strlen(QUICKBOOKS_API_APPLICATIONEDITSEQUENCE) - 2);
 
@@ -489,7 +489,7 @@ class QuickBooks_Callbacks_API_Callbacks
 		//print_r($extra);
 		//print_r($Iterator);
 
-		if (isset($extra['callbacks']) and is_array($extra['callbacks']))
+		if (isset($extra['callbacks']) && is_array($extra['callbacks']))
 		{
 			QuickBooks_Callbacks_API_Callbacks::_callCallbacks($extra['callbacks'], $method, $action, $ID, $err, $qbxml, $Iterator, $qbres, $callback_options);
 		}
@@ -609,7 +609,7 @@ class QuickBooks_Callbacks_API_Callbacks
 			return false;
 		}
 
-		if (isset($extra['callbacks']) and is_array($extra['callbacks']))
+		if (isset($extra['callbacks']) && is_array($extra['callbacks']))
 		{
 			QuickBooks_Callbacks_API_Callbacks::_callCallbacks($extra['callbacks'], $method, $action, $ID, $err, $qbxml, $Object, $qbres);
 		}
